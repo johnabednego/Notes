@@ -14,6 +14,7 @@ module.exports = {
       },
       transitionDuration: {
         '250': '250ms',
+        '225': '225ms',
       },
       transitionTimingFunction: {
         'custom-ease': 'cubic-bezier(0.4, 0, 0.2, 1)',
