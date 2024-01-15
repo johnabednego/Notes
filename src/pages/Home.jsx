@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import searchIcon from './assets/search.svg'
 import plusIcon from './assets/plus.svg'
 
 const Home = () => {
+    const [switchTab, setSwitchTab] = useState(0)
+
     return (
         <div className=' w-full mt-[1em] mb-[4em] mx-auto p-[15px] max-w-[854px]'>
             <div className=' w-[calc(100%+24px)] m-[-12px] flex flex-col flex-wrap box-border'>
@@ -21,35 +23,35 @@ const Home = () => {
                     {/**Tabs */}
                     <div className=' flex-grow-0 max-w-[75%] basis-[75%] m-0 box-border w-full flex flex-wrap'>
                         <div>
-                            <button type="button" className='justify-center align-middle items-center border-0 m-0 inline-flex outline-[0] text-[#fff] bg-[#69bcff] relative min-w-[89px] font-normal mr-[16px]  shadow-none py-[6px] pr-[16px] text-[0.875rem] box-border leading-[1.75] rounded-[4px] tracking-[0.02857em] transition-custom duration-250 ease-custom-ease delay-0'>
+                            <button onClick={()=>setSwitchTab(0)} type="button" className={` ${switchTab===0?'text-[#fff] bg-[#69bcff] cursor-not-allowed':' cursor-pointer hover:opacity-40'} justify-center align-middle items-center border-0 m-0 inline-flex outline-[0]  relative min-w-[89px] font-normal mr-[16px]  shadow-none py-[6px] pr-[16px] text-[0.875rem] box-border leading-[1.75] rounded-[4px] tracking-[0.02857em] transition-custom duration-250 ease-custom-ease delay-0`}>
                                 <span className=' w-full'>All</span>
                             </button>
 
-                            <button type="button" className=' align-middle items-center outline-[0] m-0 cursor-pointer border-0 tracking-[0.02857em] rounded-[4px] leading-[1.75] bg-transparent relative min-w-[89px] font-normal mr-[16px] shadow-none py-[6px] px-[8px] text-[#000000de] text-[0.875rem] transition-custom duration-250 ease-custom-ease delay-0'>
-                                <span className=' hover-animate w-full items-center align-middle inline-flex flex-col'>
+                            <button onClick={()=>setSwitchTab(1)}  type="button" className={` ${switchTab===1?'text-[#fff] bg-[#ff9100] cursor-not-allowed':'cursor-pointer'} align-middle items-center outline-[0] m-0 cursor-pointer border-0 tracking-[0.02857em] rounded-[4px] leading-[1.75] bg-transparent relative min-w-[89px] font-normal mr-[16px] shadow-none py-[6px] px-[8px] text-[#000000de] text-[0.875rem] transition-custom duration-250 ease-custom-ease delay-0`}>
+                                <span className={` ${switchTab !==1?'hover-animate':''} w-full items-center align-middle inline-flex flex-col`}>
                                     <span>Home</span>
-                                    <span className=' dot text-[#ff9100] bottom-[-.4em] text-[2em] leading-[1] absolute'>•</span>
+                                    <span className={` ${switchTab===1?' mb-1 text-[4em] animate-ping':'text-[2em]'} dot text-[#ff9100] bottom-[-.4em] text-[2em] leading-[1] absolute`}>•</span>
                                 </span>
                             </button>
 
-                            <button type="button" className=' align-middle items-center outline-[0] m-0 cursor-pointer border-0 tracking-[0.02857em] rounded-[4px] leading-[1.75] bg-transparent relative min-w-[89px] font-normal mr-[16px] shadow-none py-[6px] px-[8px] text-[#000000de] text-[0.875rem] transition-custom duration-250 ease-custom-ease delay-0'>
-                                <span className=' hover-animate w-full items-center align-middle inline-flex flex-col'>
+                            <button onClick={()=>setSwitchTab(2)}  type="button" className={` ${switchTab===2?'text-[#fff] bg-[#5c6bc0] cursor-not-allowed':'cursor-pointer'} align-middle items-center outline-[0] m-0 cursor-pointer border-0 tracking-[0.02857em] rounded-[4px] leading-[1.75] bg-transparent relative min-w-[89px] font-normal mr-[16px] shadow-none py-[6px] px-[8px] text-[#000000de] text-[0.875rem] transition-custom duration-250 ease-custom-ease delay-0`}>
+                                <span className={` ${switchTab !==2?'hover-animate':''} w-full items-center align-middle inline-flex flex-col`}>
                                     <span>Work</span>
-                                    <span className=' dot text-[#5c6bc0] bottom-[-.4em] text-[2em] leading-[1] absolute'>•</span>
+                                    <span className={` dot text-[#5c6bc0] bottom-[-.4em] ${switchTab===2?' mb-1 text-[4em] animate-ping':'text-[2em]'} leading-[1] absolute`}>•</span>
                                 </span>
                             </button>
 
-                            <button type="button" className=' align-middle items-center outline-[0] m-0 cursor-pointer border-0 tracking-[0.02857em] rounded-[4px] leading-[1.75] bg-transparent relative min-w-[89px] font-normal mr-[16px] shadow-none py-[6px] px-[8px] text-[#000000de] text-[0.875rem] transition-custom duration-250 ease-custom-ease delay-0'>
-                                <span className=' hover-animate w-full items-center align-middle inline-flex flex-col'>
+                            <button onClick={()=>setSwitchTab(3)}  type="button" className={` ${switchTab===3?'text-[#fff] bg-[#66bb6a] cursor-not-allowed':'cursor-pointer'} align-middle items-center outline-[0] m-0 cursor-pointer border-0 tracking-[0.02857em] rounded-[4px] leading-[1.75] bg-transparent relative min-w-[89px] font-normal mr-[16px] shadow-none py-[6px] px-[8px] text-[#000000de] text-[0.875rem] transition-custom duration-250 ease-custom-ease delay-0`}>
+                                <span className={` ${switchTab !==3?'hover-animate':''} w-full items-center align-middle inline-flex flex-col`}>
                                     <span>Personal</span>
-                                    <span className=' dot text-[#66bb6a] bottom-[-.4em] text-[2em] leading-[1] absolute'>•</span>
+                                    <span className={` dot text-[#66bb6a] bottom-[-.4em] ${switchTab===3?' mb-1 text-[4em] animate-ping':'text-[2em]'} leading-[1] absolute`}>•</span>
                                 </span>
                             </button>
 
-                            <button type="button" className=' align-middle items-center outline-[0] m-0 cursor-pointer border-0 tracking-[0.02857em] rounded-[4px] leading-[1.75] bg-transparent relative min-w-[89px] font-normal mr-[16px] shadow-none py-[6px] px-[8px] text-[#000000de] text-[0.875rem] transition-custom duration-250 ease-custom-ease delay-0'>
-                                <span className=' hover-animate w-full items-center align-middle inline-flex flex-col'>
+                            <button onClick={()=>setSwitchTab(4)}  type="button" className={` ${switchTab===4?'text-[#fff] bg-[#51336A] cursor-not-allowed':'cursor-pointer'} align-middle items-center outline-[0] m-0 cursor-pointer border-0 tracking-[0.02857em] rounded-[4px] leading-[1.75] bg-transparent relative min-w-[89px] font-normal mr-[16px] shadow-none py-[6px] px-[8px] text-[#000000de] text-[0.875rem] transition-custom duration-250 ease-custom-ease delay-0`}>
+                                <span className={` ${switchTab !==4?'hover-animate':''} w-full items-center align-middle inline-flex flex-col`}>
                                     <span>Other(s)</span>
-                                    <span className=' dot text-[#51336A] bottom-[-.4em] text-[2em] leading-[1] absolute'>•</span>
+                                    <span className={` dot text-[#51336A] bottom-[-.4em] ${switchTab===4?' mb-1 text-[4em] animate-ping':'text-[2em]'} leading-[1] absolute`}>•</span>
                                 </span>
                             </button>
                         </div>
