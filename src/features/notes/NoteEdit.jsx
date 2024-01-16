@@ -66,7 +66,6 @@ export default function NoteEdit({ note: noteToUpdate, onClick, disableClosing, 
     // no input then do nothing
     if (!textContent || textContent.trim().length === 0) return;
 
-    const timeout = setTimeout(() => {
       if (isCreatingMode && !isCreatingFinished && !isPendingCreate) {
         createNote(
           { note: { title, textContent } },
@@ -90,9 +89,7 @@ export default function NoteEdit({ note: noteToUpdate, onClick, disableClosing, 
         }
         updateNote({ note: { ...noteToEdit, title, textContent } });
       }
-    }, 1000);
 
-    return () => clearTimeout(timeout);
     // eslint-disable-next-line
   }, [title, textContent]);
 

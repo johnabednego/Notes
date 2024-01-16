@@ -52,31 +52,20 @@ export default function useApiNotes() {
     return response
   }
 
-  // const getArchivedNotes = async () => {
-  //   const response = await axiosInstance.get('/notes/archived');
-  //   return response.data;
-  // };
+  const getArchivedNotes = async () => {
+    const response = await axiosInstance.get('/archived');
+    return response.data;
+  };
 
-  // const getOwnNotes = async () => {
-  //   const response = await axiosInstance.get('/notes');
-  //   return response.data;
-  // };
+    const archiveNote = async (noteId) => {
+      const response = await axiosInstance.patch(`/notes/${noteId}/archive`);
+      return response.data;
+    };
 
-  // const getSharedNotes = async () => {
-  //   const response = await axiosInstance.get('/notes/shared');
-  //   return response.data;
-  // };
-
-  
-  // const getTrashedNotes = async () => {
-  //   const response = await axiosInstance.get('/notes/trashed');
-  //   return response.data;
-  // };
-
-  // const countNotes = async () => {
-  //   const response = await axiosInstance.get('/notes/count');
-  //   return response.data;
-  // };
+    const unarchiveNote = async (noteId) => {
+      const response = await axiosInstance.patch(`/notes/${noteId}/unarchive`);
+      return response.data;
+    };
 
   return {
     createNote,
@@ -87,10 +76,8 @@ export default function useApiNotes() {
     restoreNote,
     deleteNote,
     emptyTrash,
-    // getOwnNotes,
-    // getSharedNotes,
-    // getArchivedNotes,
-    // getTrashedNotes,
-    // countNotes,
+    getArchivedNotes,
+    archiveNote,
+    unarchiveNote
   };
 }

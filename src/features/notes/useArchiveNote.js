@@ -30,6 +30,7 @@ export default function useTrashNote() {
       return { prevDataNotesAll, prevDataNotesArchived };
     },
     onError: (_err, _data, ctx) => {
+      console.log(_err)
       toast.error('Cannot archive the note');
       queryClient.setQueryData(['notes', 'all'], ctx.prevDataNotesAll);
       queryClient.setQueryData(['notes', 'archived'], ctx.prevDataNotesArchived);

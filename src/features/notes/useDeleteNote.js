@@ -25,7 +25,6 @@ export default function useDeleteNote() {
     },
     onSuccess: () => {
       toast.success('Note deleted') && setTimeout(()=>{
-        window.location.reload()
       }, 1000)
       queryClient.refetchQueries({ queryKey: ['notes', 'trashed'] })
     },

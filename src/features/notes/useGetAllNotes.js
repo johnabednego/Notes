@@ -12,7 +12,7 @@ export default function useGetAllNotes() {
     queryKey: ['notes', 'all'],
     queryFn: async () => {
       const data = await getAllNotes();
-      return data.notes.filter((note)=>note.isTrashed===false)
+      return data.notes.filter((note)=>note.isTrashed===false && note.isArchived===false)
     },
   });
 
