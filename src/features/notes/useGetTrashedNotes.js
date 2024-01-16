@@ -12,7 +12,6 @@ export default function useGetTrashedNotes() {
     queryKey: ['notes', 'trashed'],
     queryFn: async () => {
       const data = await getAllNotes();
-      console.log(data.notes.filter((note)=>note.isTrashed===true))
       return data.notes.filter((note)=>note.isTrashed===true)
     },
   });

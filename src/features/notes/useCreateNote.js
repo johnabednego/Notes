@@ -16,7 +16,7 @@ export default function useCreateNote() {
     mutationFn: async ({ note }) => await createNoteApi(note?.title, note?.textContent, note?.tags, note?.colorHex),
     mutationKey: ['notes', 'create'],
     onError: () => {
-      toast.error('Note Title is Required!!');
+      toast.error("Note Title can't be same or empty.");
     },
     onSuccess: ({ note }) => {
       queryClient.setQueryData(['notes', 'all'], oldNotes => (oldNotes ? [note, ...oldNotes] : oldNotes));
