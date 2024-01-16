@@ -19,7 +19,6 @@ function formatDate(dateItem) {
 }
 
 const NoteItem = forwardRef(function ({ note, className, style }, ref) {
-  console.log(note)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isClosingDisabled, setIsClosingDisabled] = useState(false);
   const textContentRef = useRef(null);
