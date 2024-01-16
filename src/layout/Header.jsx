@@ -1,16 +1,12 @@
-import { useIsMutating } from '@tanstack/react-query';
 import PropTypes from 'prop-types';
 import { twMerge } from 'tailwind-merge';
-import { TbCloudCheck, TbMenu2 } from 'react-icons/tb';
+import {TbMenu2 } from 'react-icons/tb';
 import Button from '../ui/Button';
-import Spinner from '../ui/Spinner';
 import ColorThemes from '../ui/ColorThemes';
 import { useState } from 'react';
 import SidebarMenu from './SidebarMenu';
-import Tooltip from '../ui/Tooltip';
 
 export default function Header({ isAuth = true, className }) {
-  const isMutatingNotes = useIsMutating({ mutationKey: ['notes'] });
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const classes = twMerge(

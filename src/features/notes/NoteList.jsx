@@ -7,7 +7,7 @@ import * as propTypes from '../../utils/prop-types';
 
 export default function NoteList({ notes, className }) {
   const classes = twMerge(
-    'grid w-[100%] auto-rows-[8px] grid-cols-[repeat(auto-fill,16rem)] xxs:grid-cols-[repeat(auto-fill,20rem)] justify-center gap-4 pb-20',
+    'grid w-[100%] auto-rows-[8px] grid-cols-[repeat(auto-fill,16rem)] xxs:grid-cols-[repeat(auto-fill,20rem)] justify-center gap-[2rem] pb-20',
     className,
   );
 
