@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Button from './Button';
+import { useEffect } from 'react';
 
 export default function ErrorFallback({ error, resetErrorBoundary }) {
   return (
