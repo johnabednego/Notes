@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiBaseUrl = 'http://localhost:4000/api/v1';
+const apiBaseUrl = 'https://nutty-fish-getup.cyclic.app/api/v1';
 
 export default function useApiNotes() {
   const axiosInstance = axios.create({
